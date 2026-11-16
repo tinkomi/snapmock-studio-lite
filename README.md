@@ -39,6 +39,17 @@ Try the free edition directly in your browser:
 
 ---
 
+
+---
+
+## 📸 Visual Walkthrough & Feature Showcase
+
+### 1. 3D Isometric Tilt, Pitch & Camera Yaw Controls
+![3D Isometric Tilt Controls](./assets/gallery-01.png)
+
+### 2. Multi-Device Frames & Social Platform Presets
+![Multi-Device Frames](./assets/gallery-02.png)
+
 ## ⚖️ Edition Comparison
 
 | Feature | SnapMock Lite (Free) | SnapMock PRO ($9) |
