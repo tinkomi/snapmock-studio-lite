@@ -1,44 +1,44 @@
 # SnapMock Studio Lite
 
-**Free, offline 3D isometric mockup and social card generator studio.** Turn a screenshot into a polished visual presentation with a lightweight, standalone HTML app.
+**Free, offline screenshot-to-mockup generator.** Add an image, customize its browser-style frame, background, padding, and shadow, then export a PNG.
 
 [Launch the free live demo](https://mcjin87-eng.github.io/snapmock-studio-lite/) · [View source](https://github.com/mcjin87-eng/snapmock-studio-lite)
 
 ## What it does
 
-SnapMock Studio Lite helps you place a screenshot into a browser-style frame and create a dimensional isometric mockup or social-ready visual. The app runs from a single HTML file and exports the canvas as a PNG.
+SnapMock Studio Lite turns an image into a clean browser-frame mockup. Upload, paste, or drag and drop an image, adjust the available presentation settings, and export the finished composition as a PNG.
 
-- Create an isometric presentation from an image
-- Preview the result in a browser mockup frame
-- Use a standalone, single-file interface
-- Work locally without a build step; no server is required
-- Export your composition as a PNG
+- Browser-style frame and theme options
+- Background, padding, and shadow controls
+- Image upload, paste, and drag-and-drop input
+- PNG export
+- Standalone HTML file with no build step
 
-The available controls and output depend on the Lite implementation in index.html.
+**Lite scope:** the current app does not perform genuine 3D isometric transformations and does not include dedicated social-platform card sizing controls. The interface is in Korean.
 
 ## Quick start
 
-### Try it online
+### Online
 
-Open the [live demo](https://mcjin87-eng.github.io/snapmock-studio-lite/), add an image using the on-screen upload or paste controls, adjust the available presentation options, and export your result.
+Open the [live demo](https://mcjin87-eng.github.io/snapmock-studio-lite/), add an image, adjust the available controls, and export your PNG.
 
-### Run locally
+### Locally
 
 1. Download or clone this repository.
-2. Open index.html in a modern browser.
-3. Add an image and create your mockup.
-4. Use the export control to save a PNG.
+2. Open `index.html` in a modern browser.
+3. Add an image using upload, paste, or drag and drop.
+4. Customize the frame and presentation, then export as PNG.
 
-The application is a standalone HTML file; there is no package installation or build process.
+No package installation or development server is required. The app is designed to work from the standalone HTML file.
 
-## Project files
+## Files
 
-- index.html — SnapMock Studio Lite application
-- README.md — project guide
+- `index.html` — SnapMock Studio Lite application
+- `README.md` — project guide
 
-## Lite and PRO
+## SnapMock PRO
 
-Lite is the free edition. **SnapMock PRO** is a separate paid upgrade for users who want the full studio. See the [Gumroad product page](https://gumroad.com/) for current PRO details and availability. Features and pricing may change; check the product page for the latest information.
+SnapMock PRO is the optional paid upgrade for users seeking the full studio. Search Gumroad for **SnapMock PRO** to check current details and availability. The direct product link is not yet included here; confirm the listing before purchase. Lite remains free.
 
 ## License
 
@@ -46,4 +46,4 @@ No license has been specified for this repository. Public visibility on GitHub d
 
 ---
 
-Create, explore, and present your work with SnapMock Studio Lite.
+Create and present your screenshot mockups with SnapMock Studio Lite.
