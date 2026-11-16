@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SnapMock Lite — One-Click Screenshot & Browser Mockup Generator</title>
+  <title id="pageTitle">SnapMock Lite — One-Click Screenshot & Browser Mockup Generator</title>
   <style>
     :root {
       --bg: #090a10;
@@ -18,9 +18,13 @@
     header { max-width: 1200px; width: 100%; margin: 0 auto 16px; display: flex; justify-content: space-between; align-items: center; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
     .logo { font-size: 20px; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 8px; }
     .badge { font-size: 11px; padding: 3px 8px; border-radius: 999px; background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid #3b82f6; }
+    .lang-switcher { display: flex; align-items: center; gap: 6px; }
+    .lang-select { background: #121522; border: 1px solid var(--border); color: #fff; padding: 6px 10px; border-radius: 6px; font-size: 12px; cursor: pointer; outline: none; }
+    .lang-select:focus { border-color: var(--accent); }
     .pro-banner { max-width: 1200px; width: 100%; margin: 0 auto 20px; background: linear-gradient(135deg, rgba(59,130,246,0.15) 0%, rgba(147,51,234,0.15) 100%); border: 1px solid rgba(147,51,234,0.4); border-radius: 10px; padding: 12px 18px; display: flex; justify-content: space-between; align-items: center; }
-    .btn-upgrade { background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); color: #fff; padding: 6px 14px; border-radius: 6px; font-size: 13px; font-weight: 600; border: none; cursor: pointer; text-decoration: none; display: inline-block; }
+    .btn-upgrade { background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); color: #fff; padding: 6px 14px; border-radius: 6px; font-size: 13px; font-weight: 600; border: none; cursor: pointer; text-decoration: none; display: inline-block; white-space: nowrap; }
     .workspace { max-width: 1200px; width: 100%; margin: 0 auto; display: grid; grid-template-columns: 320px 1fr; gap: 20px; flex: 1; }
+    @media (max-width: 800px) { .workspace { grid-template-columns: 1fr; } }
     .sidebar { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 16px; }
     .section-title { font-size: 13px; font-weight: 700; color: #cbd5e1; text-transform: uppercase; letter-spacing: 0.5px; }
     label { display: block; font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
@@ -38,22 +42,36 @@
 </head>
 <body>
   <header>
-    <div class="logo">📸 SnapMock <span class="badge">Lite Free</span></div>
-    <div style="font-size: 12px; color: var(--text-muted);">100% Offline Screenshot & Browser Mockup Studio</div>
+    <div>
+      <div class="logo">📸 SnapMock <span class="badge">Lite Free</span></div>
+      <div style="font-size: 12px; color: var(--text-muted); margin-top: 3px;" data-i18n="subtitle">100% Offline Screenshot & Browser Mockup Studio</div>
+    </div>
+    <div class="lang-switcher">
+      <span style="font-size: 14px;">🌐</span>
+      <select id="langSelect" class="lang-select" onchange="changeLanguage(this.value)">
+        <option value="en">English</option>
+        <option value="es">Español</option>
+        <option value="fr">Français</option>
+        <option value="pt">Português</option>
+        <option value="zh">简体中文</option>
+        <option value="ja">日本語</option>
+        <option value="ko">한국어</option>
+      </select>
+    </div>
   </header>
 
   <div class="pro-banner">
     <div>
-      <div style="font-size: 14px; font-weight: 700; color: #fff;">🚀 Unlock 3D Isometric Tilt & Multi-Device Frames with SnapMock PRO</div>
-      <div style="font-size: 12px; color: var(--text-muted);">Includes iPhone/iPad bezels, 3D perspective tilt, and social media auto-presets (X, LinkedIn, YouTube, Product Hunt)</div>
+      <div style="font-size: 14px; font-weight: 700; color: #fff;" data-i18n="pro_banner_h4">🚀 Unlock 3D Isometric Tilt & Multi-Device Frames with SnapMock PRO</div>
+      <div style="font-size: 12px; color: var(--text-muted);" data-i18n="pro_banner_p">Includes iPhone/iPad bezels, 3D perspective tilt, and social media auto-presets (X, LinkedIn, YouTube, Product Hunt)</div>
     </div>
-    <a href="https://mcjinster.gumroad.com/l/bmrpp" target="_blank" class="btn-upgrade">Explore PRO Edition ($9)</a>
+    <a href="https://mcjinster.gumroad.com/l/bmrpp" target="_blank" class="btn-upgrade" data-i18n="btn_get_pro">Explore PRO Edition ($9)</a>
   </div>
 
   <div class="workspace">
     <div class="sidebar">
       <div>
-        <div class="section-title" style="margin-bottom: 10px;">Background Style</div>
+        <div class="section-title" style="margin-bottom: 10px;" data-i18n="lbl_bg_style">Background Style</div>
         <div class="color-presets">
           <div class="color-btn" style="background: linear-gradient(135deg, #3b82f6, #9333ea);" onclick="setBg('gradient1')" title="Cosmic Purple"></div>
           <div class="color-btn" style="background: linear-gradient(135deg, #f43f5e, #fb923c);" onclick="setBg('gradient2')" title="Sunset Orange"></div>
@@ -64,26 +82,26 @@
       </div>
 
       <div>
-        <label>Padding: <span id="padVal">60px</span></label>
+        <label><span data-i18n="lbl_padding">Padding</span>: <span id="padVal">60px</span></label>
         <input type="range" id="padSlider" min="20" max="140" value="60" oninput="updatePadding(this.value)">
       </div>
 
       <div>
-        <label>Shadow Intensity: <span id="shadowVal">Medium</span></label>
+        <label><span data-i18n="lbl_shadow">Shadow Intensity</span>: <span id="shadowVal">Medium</span></label>
         <input type="range" id="shadowSlider" min="0" max="80" value="40" oninput="updateShadow(this.value)">
       </div>
 
       <div>
-        <label>Browser Frame Theme</label>
+        <label data-i18n="lbl_frame_theme">Browser Frame Theme</label>
         <select id="themeSelect" onchange="redrawCanvas()" style="width:100%; background:#1c2235; border:1px solid var(--border); color:#fff; padding:8px; border-radius:6px;">
-          <option value="dark">macOS Dark Window</option>
-          <option value="light">macOS Light Window</option>
+          <option value="dark" data-i18n="opt_dark">macOS Dark Window</option>
+          <option value="light" data-i18n="opt_light">macOS Light Window</option>
         </select>
       </div>
 
       <div style="margin-top: auto; display: flex; flex-direction: column; gap: 8px;">
-        <button class="btn" onclick="downloadPNG()">💾 Export High-Res PNG</button>
-        <button class="btn" style="background:#1e2438; border:1px solid var(--border);" onclick="resetImage()">🔄 Replace Screenshot</button>
+        <button class="btn" onclick="downloadPNG()" data-i18n="btn_download">💾 Export High-Res PNG</button>
+        <button class="btn" style="background:#1e2438; border:1px solid var(--border);" onclick="resetImage()" data-i18n="btn_replace">🔄 Replace Screenshot</button>
       </div>
     </div>
 
@@ -92,8 +110,8 @@
         <canvas id="mockupCanvas" width="900" height="600"></canvas>
         <div class="dropzone-overlay" id="dropzone" onclick="document.getElementById('fileInput').click()">
           <div style="font-size: 32px;">🖼️</div>
-          <div style="font-weight: 700;">Drag & drop your screenshot here or paste (Ctrl + V)</div>
-          <div style="font-size: 12px; color: var(--text-muted);">or click to browse (.png, .jpg, .webp)</div>
+          <div style="font-weight: 700;" data-i18n="dropzone_title">Drag & drop your screenshot here or paste (Ctrl + V)</div>
+          <div style="font-size: 12px; color: var(--text-muted);" data-i18n="dropzone_hint">or click to browse (.png, .jpg, .webp)</div>
           <input type="file" id="fileInput" accept="image/*" style="display:none;" onchange="handleFile(this.files[0])">
         </div>
       </div>
@@ -101,6 +119,172 @@
   </div>
 
   <script>
+    const translations = {
+      en: {
+        title: "SnapMock Lite — One-Click Screenshot & Browser Mockup Generator",
+        subtitle: "100% Offline Screenshot & Browser Mockup Studio",
+        pro_banner_h4: "🚀 Unlock 3D Isometric Tilt & Multi-Device Frames with SnapMock PRO",
+        pro_banner_p: "Includes iPhone/iPad bezels, 3D perspective tilt, and social media auto-presets (X, LinkedIn, YouTube, Product Hunt)",
+        btn_get_pro: "Explore PRO Edition ($9)",
+        lbl_bg_style: "Background Style",
+        lbl_padding: "Padding",
+        lbl_shadow: "Shadow Intensity",
+        lbl_frame_theme: "Browser Frame Theme",
+        opt_dark: "macOS Dark Window",
+        opt_light: "macOS Light Window",
+        btn_download: "💾 Export High-Res PNG",
+        btn_replace: "🔄 Replace Screenshot",
+        dropzone_title: "Drag & drop your screenshot here or paste (Ctrl + V)",
+        dropzone_hint: "or click to browse (.png, .jpg, .webp)",
+        alert_no_image: "Please upload or paste an image first!",
+        shadow_light: "Light",
+        shadow_medium: "Medium",
+        shadow_strong: "Strong"
+      },
+      es: {
+        title: "SnapMock Lite — Generador de Maquetas de Navegador en Un Clic",
+        subtitle: "Estudio de Maquetas de Capturas de Pantalla 100% Offline",
+        pro_banner_h4: "🚀 Desbloquea Inclinación 3D Isométrica y Marcos Multi-Dispositivo con SnapMock PRO",
+        pro_banner_p: "Incluye biseles de iPhone/iPad, inclinación 3D y ajustes para redes sociales (X, LinkedIn, YouTube)",
+        btn_get_pro: "Explorar Edición PRO ($9)",
+        lbl_bg_style: "Estilo de Fondo",
+        lbl_padding: "Espaciado",
+        lbl_shadow: "Intensidad de Sombra",
+        lbl_frame_theme: "Tema del Marco del Navegador",
+        opt_dark: "Ventana macOS Oscura",
+        opt_light: "Ventana macOS Clara",
+        btn_download: "💾 Exportar PNG Alta Resolución",
+        btn_replace: "🔄 Cambiar Captura",
+        dropzone_title: "Arrastra tu captura aquí o pega (Ctrl + V)",
+        dropzone_hint: "o haz clic para seleccionar archivo (.png, .jpg, .webp)",
+        alert_no_image: "¡Por favor sube o pega una imagen primero!",
+        shadow_light: "Ligera",
+        shadow_medium: "Media",
+        shadow_strong: "Fuerte"
+      },
+      fr: {
+        title: "SnapMock Lite — Générateur de Mockups de Navigateur en Un Clic",
+        subtitle: "Studio de Mockups de Captures d'Écran 100% Hors Ligne",
+        pro_banner_h4: "🚀 Débloquez l'Inclinaison 3D Isométrique et Cadres Multi-Appareils avec SnapMock PRO",
+        pro_banner_p: "Comprend les bordures iPhone/iPad, l'inclinaison 3D et les formats prédéfinis réseaux sociaux",
+        btn_get_pro: "Découvrir l'Édition PRO ($9)",
+        lbl_bg_style: "Style d'Arrière-Plan",
+        lbl_padding: "Marge Interne",
+        lbl_shadow: "Intensité de l'Ombre",
+        lbl_frame_theme: "Thème du Cadre de Navigateur",
+        opt_dark: "Fenêtre macOS Sombre",
+        opt_light: "Fenêtre macOS Claire",
+        btn_download: "💾 Exporter PNG Haute Résolution",
+        btn_replace: "🔄 Remplacer la Capture",
+        dropzone_title: "Glissez votre capture ici ou collez (Ctrl + V)",
+        dropzone_hint: "ou cliquez pour choisir un fichier (.png, .jpg, .webp)",
+        alert_no_image: "Veuillez d'abord télécharger ou coller une image !",
+        shadow_light: "Légère",
+        shadow_medium: "Moyenne",
+        shadow_strong: "Forte"
+      },
+      pt: {
+        title: "SnapMock Lite — Gerador de Mockups de Navegador em Um Clique",
+        subtitle: "Estúdio de Mockups de Captura de Tela 100% Offline",
+        pro_banner_h4: "🚀 Desbloqueie Inclinação Isométrica 3D e Molduras de Dispositivos com SnapMock PRO",
+        pro_banner_p: "Inclui molduras iPhone/iPad, inclinação 3D e formatos para redes sociais (X, LinkedIn, YouTube)",
+        btn_get_pro: "Explorar Edição PRO ($9)",
+        lbl_bg_style: "Estilo de Fundo",
+        lbl_padding: "Espaçamento",
+        lbl_shadow: "Intensidade da Sombra",
+        lbl_frame_theme: "Tema da Moldura do Navegador",
+        opt_dark: "Janela macOS Escura",
+        opt_light: "Janela macOS Clara",
+        btn_download: "💾 Exportar PNG Alta Resolução",
+        btn_replace: "🔄 Trocar Captura",
+        dropzone_title: "Arraste sua captura aqui ou cole (Ctrl + V)",
+        dropzone_hint: "ou clique para escolher arquivo (.png, .jpg, .webp)",
+        alert_no_image: "Por favor, carregue ou cole uma imagem primeiro!",
+        shadow_light: "Fraca",
+        shadow_medium: "Média",
+        shadow_strong: "Forte"
+      },
+      zh: {
+        title: "SnapMock Lite — 一键式网页截图与浏览器模型生成器",
+        subtitle: "100%离线截图与浏览器模型制作工作室",
+        pro_banner_h4: "🚀 使用 SnapMock PRO 解锁 3D 等轴倾斜与多设备模型框架",
+        pro_banner_p: "包含 iPhone/iPad 边框、3D 透视倾斜调节及主流社交媒体尺寸预设",
+        btn_get_pro: "了解 PRO 版本 ($9)",
+        lbl_bg_style: "背景样式",
+        lbl_padding: "画布边距",
+        lbl_shadow: "阴影强度",
+        lbl_frame_theme: "浏览器框架主题",
+        opt_dark: "macOS 暗色窗口",
+        opt_light: "macOS 亮色窗口",
+        btn_download: "💾 导出高清 PNG",
+        btn_replace: "🔄 替换截图",
+        dropzone_title: "拖放截图至此处或直接粘贴 (Ctrl + V)",
+        dropzone_hint: "或点击选择图片文件 (.png, .jpg, .webp)",
+        alert_no_image: "请先上传或粘贴截图！",
+        shadow_light: "轻微",
+        shadow_medium: "适中",
+        shadow_strong: "强烈"
+      },
+      ja: {
+        title: "SnapMock Lite — ワンクリックブラウザモックアップ生成ツール",
+        subtitle: "100%オフライン スクリーンショット＆モックアップスタジオ",
+        pro_banner_h4: "🚀 SnapMock PROで3Dアイソメトリック傾斜とマルチデバイスフレームを解放",
+        pro_banner_p: "iPhone/iPadベゼル、3Dパース傾斜、SNS用プリセット（X、LinkedIn、YouTube等）を搭載",
+        btn_get_pro: "PRO版を詳しく見る ($9)",
+        lbl_bg_style: "背景スタイル",
+        lbl_padding: "余白サイズ",
+        lbl_shadow: "影の強度",
+        lbl_frame_theme: "ブラウザフレームテーマ",
+        opt_dark: "macOS ダークウィンドウ",
+        opt_light: "macOS ライトウィンドウ",
+        btn_download: "💾 高解像度PNGを書き出し",
+        btn_replace: "🔄 スクリーンショット差し替え",
+        dropzone_title: "ここに画像をドラッグ＆ドロップまたは貼り付け (Ctrl + V)",
+        dropzone_hint: "またはクリックして画像を選択 (.png, .jpg, .webp)",
+        alert_no_image: "先に画像をアップロードまたは貼り付けてください！",
+        shadow_light: "弱",
+        shadow_medium: "標準",
+        shadow_strong: "強"
+      },
+      ko: {
+        title: "SnapMock Lite — 원클릭 웹 스크린샷 & 브라우저 목업 생성기",
+        subtitle: "100% 오프라인 단일 파일 스크린샷 & 목업 스튜디오",
+        pro_banner_h4: "🚀 SnapMock PRO로 3D 등각 기울기 및 다중 디바이스 프레임 잠금 해제",
+        pro_banner_p: "iPhone/iPad 베젤, 3D 원근 기울기, SNS 규격 프리셋(X, LinkedIn, YouTube 등) 포함",
+        btn_get_pro: "PRO 버전 알아보기 ($9)",
+        lbl_bg_style: "배경 커스텀",
+        lbl_padding: "여백",
+        lbl_shadow: "그림자 강도",
+        lbl_frame_theme: "브라우저 프레임 테마",
+        opt_dark: "macOS 다크 윈도우",
+        opt_light: "macOS 라이트 윈도우",
+        btn_download: "💾 고화질 PNG 다운로드",
+        btn_replace: "🔄 이미지 바꾸기",
+        dropzone_title: "스크린샷 이미지를 여기에 끌어다 놓거나 붙여넣으세요 (Ctrl + V)",
+        dropzone_hint: "또는 클릭하여 파일 선택 (.png, .jpg, .webp)",
+        alert_no_image: "먼저 이미지를 업로드하거나 붙여넣어주세요!",
+        shadow_light: "약하게",
+        shadow_medium: "중간",
+        shadow_strong: "강하게"
+      }
+    };
+
+    let currentLang = 'en';
+
+    function changeLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      try { localStorage.setItem('snapmock_lang', lang); } catch (e) {}
+
+      const t = translations[lang] || translations.en;
+      document.getElementById('pageTitle').textContent = t.title;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key]) el.textContent = t[key];
+      });
+      updateShadow(document.getElementById('shadowSlider').value);
+    }
+
     const canvas = document.getElementById('mockupCanvas');
     const ctx = canvas.getContext('2d');
     const dropzone = document.getElementById('dropzone');
@@ -123,7 +307,8 @@
 
     function updateShadow(val) {
       shadowBlur = parseInt(val);
-      document.getElementById('shadowVal').textContent = val > 50 ? 'Strong' : (val > 20 ? 'Medium' : 'Light');
+      const t = translations[currentLang] || translations.en;
+      document.getElementById('shadowVal').textContent = val > 50 ? t.shadow_strong : (val > 20 ? t.shadow_medium : t.shadow_light);
       redrawCanvas();
     }
 
@@ -212,7 +397,6 @@
       const wh = scaledH + headerH;
       const r = 10;
 
-      // Window background
       const theme = document.getElementById('themeSelect').value;
       ctx.fillStyle = theme === 'dark' ? '#181b28' : '#ffffff';
       roundRect(ctx, wx, wy, ww, wh, r, true, false);
@@ -222,7 +406,6 @@
       ctx.save();
       roundRect(ctx, wx, wy, ww, headerH, { tl: r, tr: r, br: 0, bl: 0 }, true, false);
       
-      // Window control dots
       const dots = ['#ef4444', '#eab308', '#22c55e'];
       dots.forEach((c, i) => {
         ctx.beginPath();
@@ -231,7 +414,6 @@
         ctx.fill();
       });
 
-      // Simple URL bar
       ctx.fillStyle = theme === 'dark' ? '#262d42' : '#f1f5f9';
       roundRect(ctx, wx + 80, wy + 6, ww - 160, headerH - 12, 4, true, false);
       ctx.restore();
@@ -263,7 +445,8 @@
 
     function downloadPNG() {
       if (!currentImg) {
-        alert('Please upload or paste an image first!');
+        const t = translations[currentLang] || translations.en;
+        alert(t.alert_no_image);
         return;
       }
       const a = document.createElement('a');
@@ -277,6 +460,15 @@
       dropzone.classList.remove('hidden');
       redrawCanvas();
     }
+
+    // Auto-detect saved language or default to 'en'
+    try {
+      const saved = localStorage.getItem('snapmock_lang');
+      if (saved && translations[saved]) {
+        document.getElementById('langSelect').value = saved;
+        changeLanguage(saved);
+      }
+    } catch (e) {}
 
     redrawCanvas();
   </script>

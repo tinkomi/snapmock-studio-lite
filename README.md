@@ -1,53 +1,63 @@
-﻿# 📸 SnapMock Lite — One-Click Screenshot & Browser Mockup Generator
+# 📸 SnapMock Studio — Offline 3D Isometric Device Mockup Creator
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![GitHub Pages](https://img.shields.io/badge/Live_Demo-GitHub_Pages-success.svg)](https://mcjin87-eng.github.io/snapmock-studio-lite/)
-[![Gumroad PRO](https://img.shields.io/badge/Gumroad-PRO_Edition_$9-pink.svg)](https://mcjinster.gumroad.com/l/bmrpp)
-[![100% Offline](https://img.shields.io/badge/Privacy-100%25_Offline-emerald.svg)]()
+> **Transform raw screenshots into clean browser & device mockups in seconds — 100% locally in your browser.**
 
-> **SnapMock Lite** is a standalone, client-side browser mockup generator. Turn ordinary product screenshots into presentation-ready visuals with customizable window themes, padding, shadows, and gradients—in seconds, without design software.
-
----
-
-## 🌐 Live Interactive Demo
-🚀 **[Try SnapMock Lite on GitHub Pages &rarr;](https://mcjin87-eng.github.io/snapmock-studio-lite/)**
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Interactive Demo](https://img.shields.io/badge/Live_Demo-GitHub_Pages-success)](https://mcjin87-eng.github.io/snapmock-studio-lite/)
+[![i18n: 7 Languages](https://img.shields.io/badge/i18n-7_Languages_Supported-green.svg)](#)
+[![Gumroad Pro](https://img.shields.io/badge/Gumroad-PRO_Edition_$9-pink)](https://mcjinster.gumroad.com/l/bmrpp)
+[![Gumroad Free](https://img.shields.io/badge/Gumroad-Lite_Free_$0+-lightgrey)](https://mcjinster.gumroad.com/l/xkbahi)
+[![Privacy First](https://img.shields.io/badge/Privacy-100%25_Offline-purple)](#)
 
 ---
 
-## ✨ Features (Lite Edition)
-
-- **One-Click Mockup Generation**: Drag & drop or paste (`Ctrl + V`) any image to wrap it in a sleek macOS browser window frame.
-- **Customizable Backgrounds**: 5 built-in color presets including Cosmic Purple, Sunset Orange, Aurora Emerald, Dark Zinc, and Crisp White.
-- **Adjustable Controls**: Smooth sliders for canvas padding (20px - 140px) and shadow blur intensity (Light, Medium, Strong).
-- **Frame Themes**: Toggle between macOS Dark and macOS Light window chrome with authentic window control dots.
-- **High-Res PNG Export**: One-click download of your composed visual with lossless rendering.
-- **100% Offline & Private**: Zero cloud uploads, zero telemetry. All image rendering happens locally on your machine via HTML5 Canvas.
+## 🌐 7 Languages Supported
+Instant one-click UI language switching:
+- **English** (Default)
+- **Español**
+- **Français**
+- **Português**
+- **简体中文**
+- **日本語**
+- **한국어**
 
 ---
 
-## 📊 Lite (Free) vs. PRO Comparison
+## 🚀 Live Interactive Demo
+Try the free edition directly in your browser:  
+👉 **[Open Live Demo on GitHub Pages](https://mcjin87-eng.github.io/snapmock-studio-lite/)**
+
+---
+
+## ✨ Features
+
+- **Fast & Intuitive**: Drag & drop screenshots or paste from your clipboard (`Ctrl + V`).
+- **macOS Window Frame Themes**: Clean dark and light browser bezels with traffic light controls.
+- **Customizable Styling**: Adjust corner radii, padding, shadow intensity, and backdrop gradients.
+- **High-DPI Canvas Rendering**: Crisp, retina-grade PNG export ready for Product Hunt, Twitter/X, and landing pages.
+- **Zero Server Uploads**: Processing happens strictly on the HTML5 Canvas in client memory.
+
+---
+
+## ⚖️ Edition Comparison
 
 | Feature | SnapMock Lite (Free) | SnapMock PRO ($9) |
 | :--- | :---: | :---: |
-| **Price** | **Free ($0)** | **$9 One-Time** |
-| **Window Frame** | macOS Dark & Light | macOS, Windows 11, iPhone 16 Pro, Minimal Borderless |
-| **3D Isometric Tilt** | ❌ Flat 2D Only | ✅ Full 3D Control (Tilt X, Tilt Y, Rotate Z) |
-| **Aspect Ratio Presets** | Auto / Manual | Twitter/X (1200x675), LinkedIn (1080x1080), Product Hunt, YouTube |
-| **Background Options** | 5 Presets | 8 Presets + Transparent Background Mode |
-| **Commercial License** | Personal / Open-Source | Commercial & Client Projects |
-| **Where to Get** | This GitHub Repo | **[Get SnapMock PRO on Gumroad](https://mcjinster.gumroad.com/l/bmrpp)** |
+| **Platform** | 100% Offline Single HTML | 100% Offline Single HTML |
+| **Languages** | 7 Languages | 7 Languages |
+| **Window Frames** | macOS Dark & Light | macOS, Windows 11 Fluent, Minimal Float & Safari |
+| **3D Isometric Tilt & Pitch** | — | Full X/Y/Z 3D Perspective Controls |
+| **Social Media Aspect Ratios** | Freeform / Preset | 16:9, 1:1, 4:5, 1.91:1 (Twitter/LinkedIn/PH/IG) |
+| **Device Mockup Frames** | Desktop Browser | iPhone 16 Pro, iPad Pro, MacBook M3 Frame |
+| **Background Styles** | 8 Mesh & Linear Gradients | 24 Premium Gradients + Transparent PNG |
+| **Export Resolution** | Up to 1920x1080 | Ultra-HD 4K (3840x2160) Retina |
+| **Commercial License** | Personal Use | Full Commercial & Client Work License |
 
 ---
 
-## 🚀 Quick Start
-
-1. Clone or download this repository.
-2. Open `index.html` in any web browser.
-3. Paste (`Ctrl + V`) or drag & drop your screenshot.
-4. Customize padding, shadow, and background.
-5. Click **Export High-Res PNG**!
-
----
+## 📥 Get SnapMock
+- **Free Lite Edition**: [Download on Gumroad](https://mcjinster.gumroad.com/l/xkbahi) or use the GitHub Pages demo.
+- **PRO Edition ($9)**: [Purchase PRO on Gumroad](https://mcjinster.gumroad.com/l/bmrpp)
 
 ## 📄 License
-SnapMock Lite is released under the **MIT License**.
+MIT License — Copyright (c) 2026 mcjin87-eng.
