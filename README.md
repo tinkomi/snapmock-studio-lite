@@ -3,7 +3,7 @@
 > **Transform raw screenshots into clean browser & device mockups in seconds — 100% locally in your browser.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Interactive Demo](https://img.shields.io/badge/Live_Demo-GitHub_Pages-success)](https://mcjin87-eng.github.io/snapmock-studio-lite/)
+[![Interactive Demo](https://img.shields.io/badge/Live_Demo-GitHub_Pages-success)](https://tinkomi.github.io/snapmock-studio-lite/)
 [![i18n: 7 Languages](https://img.shields.io/badge/i18n-7_Languages_Supported-green.svg)](#)
 [![Gumroad Pro](https://img.shields.io/badge/Gumroad-PRO_Edition_$9-pink)](https://mcjinster.gumroad.com/l/bmrpp)
 [![Gumroad Free](https://img.shields.io/badge/Gumroad-Lite_Free_$0+-lightgrey)](https://mcjinster.gumroad.com/l/xkbahi)
@@ -25,7 +25,7 @@ Instant one-click UI language switching:
 
 ## 🚀 Live Interactive Demo
 Try the free edition directly in your browser:  
-👉 **[Open Live Demo on GitHub Pages](https://mcjin87-eng.github.io/snapmock-studio-lite/)**
+👉 **[Open Live Demo on GitHub Pages](https://tinkomi.github.io/snapmock-studio-lite/)**
 
 ---
 
@@ -71,4 +71,4 @@ Try the free edition directly in your browser:
 - **PRO Edition ($9)**: [Purchase PRO on Gumroad](https://mcjinster.gumroad.com/l/bmrpp)
 
 ## 📄 License
-MIT License — Copyright (c) 2026 mcjin87-eng.
+MIT License — Copyright (c) 2026 tinkomi.
